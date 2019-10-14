@@ -15,6 +15,7 @@ import re
 import sys
 import requests
 from time import sleep
+import json
 
 sys.path.append('..')
 
@@ -324,6 +325,25 @@ class GetFreeProxy(object):
                 yield ':'.join(proxy)
 
 
+    @staticmethod
+    def freeProxy15():
+        """
+        无忧代理 http://api.ip.data5u.com/dynamic/get.html?order=7c2481fa968ac78ccba2c4269445608e&sep=3
+        收费接口
+        :return:
+        """
+        import time
+        url = 'http://api.ip.data5u.com/dynamic/get.html?order=7c2481fa968ac78ccba2c4269445608e&sep=3'
+        for i in range(100):
+            try:
+                resp = requests.get(url)
+                if resp.status_code == 200 and not "请控制好请求频率，1秒内不要超过10次！" in resp.text:
+                    yield resp.text.replace('\n', '')
+            except:
+                print(Exception)
+            time.sleep(3.5)
+
+
 if __name__ == '__main__':
     from CheckProxy import CheckProxy
 
@@ -338,5 +358,6 @@ if __name__ == '__main__':
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy09)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy13)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy14)
+    CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy15)
 
-    CheckProxy.checkAllGetProxyFunc()
+    # CheckProxy.checkAllGetProxyFunc()

@@ -62,6 +62,9 @@ PROXY_GETTER = [
     "freeProxy07",
     "freeProxy08",
     "freeProxy09",
+    "freeProxy13",
+    "freeProxy14",
+    "freeProxy15",  # 5udata付费接口
 ]
 
 """ API config http://127.0.0.1:5010 """
