@@ -183,18 +183,18 @@ class GetFreeProxy(object):
             for tr in proxy_list[1:]:
                 yield ':'.join(tr.xpath('./td/text()')[0:2])
 
-    @staticmethod
-    def freeProxy06():
-        """
-        码农代理 https://proxy.coderbusy.com/
-        :return:
-        """
-        urls = ['https://proxy.coderbusy.com/']
-        for url in urls:
-            tree = getHtmlTree(url)
-            proxy_list = tree.xpath('.//table//tr')
-            for tr in proxy_list[1:]:
-                yield ':'.join(tr.xpath('./td/text()')[0:2])
+    # @staticmethod
+    # def freeProxy06():
+    #     """
+    #     码农代理 https://proxy.coderbusy.com/
+    #     :return:
+    #     """
+    #     urls = ['https://proxy.coderbusy.com/']
+    #     for url in urls:
+    #         tree = getHtmlTree(url)
+    #         proxy_list = tree.xpath('.//table//tr')
+    #         for tr in proxy_list[1:]:
+    #             yield ':'.join(tr.xpath('./td/text()')[0:2])
 
     @staticmethod
     def freeProxy07():
@@ -352,12 +352,12 @@ if __name__ == '__main__':
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy03)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy04)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy05)
-    # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy06)
+    CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy06)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy07)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy08)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy09)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy13)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy14)
-    CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy15)
+    # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxy15)
 
     # CheckProxy.checkAllGetProxyFunc()
